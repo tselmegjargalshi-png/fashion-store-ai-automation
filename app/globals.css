@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-serif: "Cormorant Garamond";
+    --font-sans: "Jost";
+    --header-h: 4.5rem;
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  /* Grid items default to min-width:auto, which lets long content
+     (tables, code, carousels) blow out the track on small screens. */
+  .grid > * {
+    min-width: 0;
+  }
+
+  body {
+    overflow-x: clip;
+    @apply bg-ivory font-sans text-[15px] font-normal leading-relaxed text-ink antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif font-normal;
+  }
+
+  ::selection {
+    @apply bg-olive text-ivory;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-olive;
+  }
+
+  input, select, textarea, button {
+    font: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply font-sans text-eyebrow font-medium uppercase;
+  }
+
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-300 ease-editorial;
+  }
+  .link-underline:hover::after,
+  .link-underline[aria-current="page"]::after {
+    @apply origin-left scale-x-100;
+  }
+
+  .field {
+    @apply block w-full rounded-none border border-line bg-white/60 px-4 py-3 text-[15px] text-ink placeholder:text-taupe-dark transition-colors focus:border-ink focus:bg-white focus:outline-none;
+  }
+  .field[aria-invalid="true"] {
+    @apply border-danger;
+  }
+  .field-label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-[0.14em] text-stone;
+  }
+  .field-error {
+    @apply mt-1.5 text-xs text-danger;
+  }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Subtle page transition (template.tsx) */
+.page-enter {
+  animation: fade-in 0.45s ease-out both;
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -1,0 +1,58 @@
+import type { LookbookLook } from "@/lib/types";
+
+export const LOOKBOOK: LookbookLook[] = [
+  {
+    id: "look-01",
+    number: "01",
+    title: "The Morning Edit",
+    caption: "Washed linen, bare feet, the first coffee. A shirt worn open over a ribbed tank.",
+    image: "look-morning",
+    productSlugs: ["mira-linen-shirt", "clara-ribbed-top", "elara-wide-leg-trousers"],
+    layout: "tall",
+  },
+  {
+    id: "look-02",
+    number: "02",
+    title: "Soft Structures",
+    caption: "Tailoring without the stiffness. An unlined blazer over a fluid satin skirt.",
+    image: "look-structures",
+    productSlugs: ["isla-everyday-blazer", "noa-satin-skirt"],
+    layout: "square",
+  },
+  {
+    id: "look-03",
+    number: "03",
+    title: "City Light",
+    caption: "Between meetings and late lunches — a trench that moves as fast as you do.",
+    image: "look-city",
+    productSlugs: ["rowan-trench", "softline-knit-top", "reese-straight-jeans"],
+    layout: "tall",
+  },
+  {
+    id: "look-04",
+    number: "04",
+    title: "Weekend Away",
+    caption: "One bag, three days. The Livia Dress, a knit for the evenings and nothing else.",
+    image: "look-weekend",
+    productSlugs: ["the-livia-dress", "talia-cashmere-blend-sweater"],
+    layout: "wide",
+  },
+  {
+    id: "look-05",
+    number: "05",
+    title: "After Hours",
+    caption: "The slip dress, a little gold, and the city after dark.",
+    image: "look-after-hours",
+    productSlugs: ["aurelie-slip-dress", "wren-cropped-jacket"],
+    layout: "tall",
+  },
+  {
+    id: "look-06",
+    number: "06",
+    title: "Everyday Elegance",
+    caption: "The pieces you reach for without thinking — and are glad you did.",
+    image: "look-everyday",
+    productSlugs: ["clara-ribbed-top", "lune-pleated-midi-skirt"],
+    layout: "square",
+  },
+];
