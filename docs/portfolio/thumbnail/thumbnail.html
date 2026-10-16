@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ELORA — Upwork portfolio thumbnail</title>
+<style>
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:normal;src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:normal;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:600;font-style:normal;src:url(fonts/cormorant-garamond-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:italic;src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:italic;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:300;src:url(fonts/jost-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:400;src:url(fonts/jost-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:500;src:url(fonts/jost-latin-500-normal.woff2) format("woff2")}
+
+:root{--ivory:#F8F5EF;--cream:#F0EAE0;--sand:#E5DCCD;--ink:#1E1D1A;--olive:#545B3B;--olive-dark:#3C4129;--olive-light:#8C9170;--stone:#6A645B;--gold:#B48C55}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:2000px;height:1500px;background:var(--ivory);overflow:hidden}
+body{position:relative;font-family:"Jost",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+
+/* soft tonal backdrop panel behind the mockups */
+.panel{position:absolute;left:830px;top:0;width:1170px;height:1340px;background:linear-gradient(160deg,var(--cream) 0%,var(--sand) 100%)}
+
+/* ── Copy column ─────────────────────────── */
+.copy{position:absolute;left:112px;top:112px;width:760px}
+.eyebrow{font-size:26px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+.mark{margin-top:52px;font-family:"Cormorant Garamond",serif;font-weight:500;font-size:158px;line-height:.9;letter-spacing:.24em;margin-left:-4px}
+.rule{width:96px;height:3px;background:var(--olive);margin:66px 0 58px}
+h1{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:94px;line-height:.98;letter-spacing:-.01em}
+h1 em{font-style:italic;color:var(--olive)}
+.points{margin-top:72px;list-style:none;display:grid;gap:28px}
+.points li{display:flex;align-items:center;gap:22px;font-size:37px;font-weight:300}
+.points li::before{content:"";width:14px;height:14px;border-radius:50%;background:var(--olive);flex:none}
+
+.chips{position:absolute;left:112px;top:1170px;display:flex;flex-wrap:nowrap;gap:12px}
+.chip{border:2px solid var(--ink);padding:12px 20px;font-size:24px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+.chip.fill{background:var(--ink);color:var(--ivory)}
+
+/* ── Mockups ─────────────────────────────── */
+.browser{position:absolute;left:900px;top:130px;width:1020px;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 50px 100px -20px rgba(30,29,26,.35),0 0 0 1px rgba(30,29,26,.08)}
+.chrome{height:60px;background:#EFEAE0;display:flex;align-items:center;padding:0 24px;gap:12px;border-bottom:1px solid rgba(30,29,26,.08)}
+.dot{width:16px;height:16px;border-radius:50%}
+.url{margin:0 auto;transform:translateX(-30px);background:#fff;border-radius:10px;padding:8px 32px;font-size:20px;color:var(--stone);letter-spacing:.02em}
+.browser img{display:block;width:1020px;height:637px;object-fit:cover;object-position:top}
+
+.phone{position:absolute;background:#141412;border-radius:68px;padding:12px;box-shadow:0 50px 90px -20px rgba(30,29,26,.5)}
+.phone .screen{position:relative;border-radius:56px;overflow:hidden;background:#fff}
+.phone img{display:block;width:100%;height:100%;object-fit:cover}
+.phone .notch{position:absolute;left:50%;top:12px;transform:translateX(-50%);width:94px;height:27px;border-radius:20px;background:#141412;z-index:2}
+.p1{left:1085px;top:640px;width:330px;height:686px;border-radius:62px}
+.p1 .screen{width:306px;height:662px;border-radius:50px}
+.p2{left:1490px;top:578px;width:330px;height:686px;border-radius:62px}
+.p2 .screen{width:306px;height:662px;border-radius:50px}
+
+.tag{position:absolute;background:var(--ivory);border-radius:100px;padding:16px 30px;font-size:25px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;box-shadow:0 14px 30px -10px rgba(30,29,26,.3);display:flex;align-items:center;gap:14px;z-index:3}
+.tag i{width:14px;height:14px;border-radius:50%;background:var(--olive-light);display:block}
+.t1{left:1768px;top:690px}
+.t2{left:1522px;top:1226px}
+.t3{left:900px;top:600px;left:1546px;top:150px;display:none}
+
+/* ── Automation band ─────────────────────── */
+.band{position:absolute;left:0;top:1340px;width:2000px;height:160px;background:var(--ink);color:var(--ivory);display:flex;align-items:center;padding:0 112px;gap:44px}
+.band .lab{font-size:24px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,245,239,.55);line-height:1.5;width:250px;flex:none}
+.flow{display:flex;align-items:center;gap:24px;flex:1;justify-content:space-between}
+.node{font-family:"Cormorant Garamond",serif;font-size:45px;font-weight:500;white-space:nowrap}
+.node small{display:block;font-family:"Jost",sans-serif;font-size:21px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--olive-light);margin-top:4px}
+.arrow{width:54px;height:2px;background:rgba(248,245,239,.4);position:relative;flex:none}
+.arrow::after{content:"";position:absolute;right:0;top:-6px;width:14px;height:14px;border-top:2px solid rgba(248,245,239,.55);border-right:2px solid rgba(248,245,239,.55);transform:rotate(45deg)}
+</style>
+</head>
+<body>
+  <div class="panel"></div>
+
+  <section class="copy">
+    <p class="eyebrow">Portfolio · E-commerce · UI/UX · AI</p>
+    <p class="mark" aria-label="ELORA">ELORA</p>
+    <div class="rule"></div>
+    <h1>Fashion <em>e-commerce</em><br>that sells itself</h1>
+    <ul class="points">
+      <li>Editorial storefront &amp; checkout</li>
+      <li>AI customer support assistant</li>
+      <li>n8n-ready automation</li>
+    </ul>
+  </section>
+
+  <div class="chips">
+    <span class="chip fill">Next.js</span>
+    <span class="chip">TypeScript</span>
+    <span class="chip">Tailwind</span>
+    <span class="chip">n8n</span>
+  </div>
+
+  <div class="browser">
+    <div class="chrome">
+      <span class="dot" style="background:#E5675C"></span><span class="dot" style="background:#E9BB4B"></span><span class="dot" style="background:#6BBF59"></span>
+      <span class="url">elora.studio/checkout</span>
+    </div>
+    <img src="shots/checkout.png" alt="ELORA checkout">
+  </div>
+
+  <div class="phone p1"><div class="screen"><img src="shots/drawer.png" alt="Cart drawer"></div></div>
+  <div class="phone p2"><div class="screen"><img src="shots/chat.png" alt="AI assistant"></div></div>
+
+
+  <div class="band">
+    <p class="lab">Automation<br>ready</p>
+    <div class="flow">
+      <div class="node">Storefront<small>Form · order · chat</small></div><span class="arrow"></span>
+      <div class="node">Signed webhook<small>HMAC-SHA256</small></div><span class="arrow"></span>
+      <div class="node">n8n workflow<small>6 events</small></div><span class="arrow"></span>
+      <div class="node">AI · Slack · Email<small>Triage · notify · reply</small></div>
+    </div>
+  </div>
+</body>
+</html>
